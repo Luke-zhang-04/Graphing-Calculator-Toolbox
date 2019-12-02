@@ -25,7 +25,9 @@ def get_values(eqn):
   #Find value of a
   try: index = eqn.index('x^2')
   except: a = 0 #error: can't find a
-  else: a = float(eqn[0:index]) if index > 0 else 1
+  else:
+    if eqn[0:index] == "-": a = -1
+    else: a = float(eqn[0:index]) if index > 0 else 1
   
   #Find value of b
   try: index2 = re.search(r"(x(\+|-| ))", eqn).start() #x and (+ or - or whitespace)
